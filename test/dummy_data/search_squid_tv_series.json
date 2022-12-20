@@ -1,0 +1,20 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/1rO4xoCo4Z5WubK0OwdVll3DPYo.jpg",
+      "first_air_date": "2022-09-01",
+      "genre_ids": [10765, 10759, 18],
+      "id": 84773,
+      "name": "Squid Game",
+      "origin_country": ["US"],
+      "original_language": "en",
+      "original_name": "Squid Game",
+      "overview": "The series revolves around a contest where 456 players, all of whom are in deep financial hardship, risk their lives to play a series of deadly children's games for the chance to win a 45.6 billion ",
+      "popularity": 4894.814,
+      "poster_path": "/mYLOqiStMxDK3fYZFirgrMt8z5d.jpg",
+      "vote_average": 7.7,
+      "vote_count": 1003
+    }
+  ]
+}
