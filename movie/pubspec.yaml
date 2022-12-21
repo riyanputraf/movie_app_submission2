@@ -24,7 +24,6 @@ dependencies:
   sqflite: ^2.0.0+3
   equatable: ^2.0.3
   google_fonts: ^3.0.1
-  firebase_crashlytics: ^3.0.4
   data_connection_checker:
     git:
       url: https://github.com/chornthorn/data_connection_checker.git
