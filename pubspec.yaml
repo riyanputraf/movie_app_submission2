@@ -23,6 +23,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  core:
+    path: core
+  about:
+    path: about
+  search:
+    path: search
+  movie:
+    path: movie
+  tvseries:
+    path: tvseries
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -39,6 +49,9 @@ dependencies:
   sqflite: ^2.0.0+3
   path_provider: ^2.0.2
   test_cov_console: ^0.2.2
+  firebase_core: ^2.1.1
+  firebase_crashlytics: ^3.0.4
+  flutter_bloc: ^8.1.1
   data_connection_checker:
     git:
       url: https://github.com/chornthorn/data_connection_checker.git
@@ -47,6 +60,7 @@ dependencies:
 dev_dependencies:
   mockito: ^5.0.8
   build_runner: ^2.0.4
+  bloc_test: ^9.0.0
   flutter_test:
     sdk: flutter
 
@@ -64,6 +78,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - certificate/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
