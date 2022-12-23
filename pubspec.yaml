@@ -51,6 +51,7 @@ dependencies:
   test_cov_console: ^0.2.2
   firebase_core: ^2.1.1
   firebase_crashlytics: ^3.0.4
+  firebase_analytics: ^10.0.5
   flutter_bloc: ^8.1.1
   data_connection_checker:
     git:

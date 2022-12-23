@@ -42,75 +42,73 @@ class _HomeTvPageState extends State<HomeTvPage> {
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SubHeading(
-              title: 'On Air Tv Series',
-              onTap: () => Navigator.pushNamed(context, OnAirTvPage.ROUTE_NAME),
-            ),
-            BlocBuilder<TvOnAirBloc, TvOnAirState>(builder: (context, state) {
-              if (state is TvOnAirLoading) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state is TvOnAirHasData) {
-                return TvList(state.result);
-              } else if (state is TvOnAirError) {
-                return Text(state.message);
-              } else {
-                return Text('Failed to load');
-              }
-            }),
-            SubHeading(
-              title: 'Popular Series',
-              onTap: () =>
-                  Navigator.pushNamed(context, PopularTvPage.ROUTE_NAME),
-            ),
-            BlocBuilder<TvPopularBloc, TvPopularState>(
-              builder: (context, state) {
-                if (state is TvPopularLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is TvPopularHasData) {
-                  return TvList(state.result);
-                } else if (state is TvPopularError) {
-                  return Expanded(
-                    child: Center(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SubHeading(
+                  title: 'On Air Tv Series',
+                  onTap: () => Navigator.pushNamed(context, OnAirTvPage.ROUTE_NAME),
+                ),
+                BlocBuilder<TvOnAirBloc, TvOnAirState>(builder: (context, state) {
+                  if (state is TvOnAirLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is TvOnAirHasData) {
+                    return TvList(state.result);
+                  } else if (state is TvOnAirError) {
+                    return Center(
                       child: Text(state.message),
-                    ),
-                  );
-                } else {
-                  return Text('Failed to load');
-                }
-              },
-            ),
-            SubHeading(
-              title: 'Top Rated Series',
-              onTap: () =>
-                  Navigator.pushNamed(context, TopRatedTvPage.ROUTE_NAME),
-            ),
-            BlocBuilder<TvTopRatedBloc, TvTopRatedState>(
-              builder: (context, state) {
-                if (state is TvTopRatedLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is TvTopRatedHasData) {
-                  return TvList(state.result);
-                } else if (state is TvTopRatedError) {
-                  return Expanded(
-                    child: Center(
-                      child: Text(state.message),
-                    ),
-                  );
-                } else {
-                  return Text('Failed to load');
-                }
-              },
-            ),
-          ],
-        )),
+                    );
+                  } else {
+                    return Text('Failed to load');
+                  }
+                }),
+                SubHeading(
+                  title: 'Popular Series',
+                  onTap: () =>
+                      Navigator.pushNamed(context, PopularTvPage.ROUTE_NAME),
+                ),
+                BlocBuilder<TvPopularBloc, TvPopularState>(
+                  builder: (context, state) {
+                    if (state is TvPopularLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (state is TvPopularHasData) {
+                      return TvList(state.result);
+                    } else if (state is TvPopularError) {
+                      return Center(
+                        child: Text(state.message),
+                      );
+                    } else {
+                      return Text('Failed to load');
+                    }
+                  },
+                ),
+                SubHeading(
+                  title: 'Top Rated Series',
+                  onTap: () =>
+                      Navigator.pushNamed(context, TopRatedTvPage.ROUTE_NAME),
+                ),
+                BlocBuilder<TvTopRatedBloc, TvTopRatedState>(
+                  builder: (context, state) {
+                    if (state is TvTopRatedLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (state is TvTopRatedHasData) {
+                      return TvList(state.result);
+                    } else if (state is TvTopRatedError) {
+                      return Center(
+                        child: Text(state.message),
+                      );
+                    } else {
+                      return Text('Failed to load');
+                    }
+                  },
+                ),
+              ],
+            )),
       ),
     );
   }

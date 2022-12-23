@@ -4,7 +4,6 @@ import 'package:core/core.dart';
 import 'package:core/presentation/widgets/sub_heading.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/routes.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/domain/entities/movie.dart';
@@ -89,86 +88,80 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
       ),
       body: bottomNavIndex == 0
           ? Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Now Playing',
-                      style: kHeading6,
-                    ),
-                    BlocBuilder<NowPlayingMoviesBloc, NowPlayingMoviesState>(
-                      builder: (context, state) {
-                        if (state is NowPlayingMoviesLoading) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (state is NowPlayingMoviesHasData) {
-                          return MovieList(state.result);
-                        } else if (state is NowPlayingMoviesError) {
-                          return Text(state.message);
-                        } else {
-                          return Container();
-                        }
-                      },
-                    ),
-                    SubHeading(
-                      title: 'Popular',
-                      onTap: () => Navigator.pushNamed(
-                          context, PopularMoviesPage.ROUTE_NAME),
-                    ),
-                    BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
-                      builder: (context, state) {
-                        if (state is PopularMoviesLoading) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (state is PopularMoviesHasData) {
-                          return MovieList(state.result);
-                        } else if (state is PopularMoviesError) {
-                          return Expanded(
-                            child: Center(
-                              child: Text(state.message),
-                            ),
-                          );
-                        } else {
-                          return Expanded(
-                            child: Container(),
-                          );
-                        }
-                      },
-                    ),
-                    SubHeading(
-                      title: 'Top Rated',
-                      onTap: () => Navigator.pushNamed(
-                          context, TopRatedMoviesPage.ROUTE_NAME),
-                    ),
-                    BlocBuilder<TopRatedMoviesBloc, TopRatedMoviesState>(
-                      builder: (context, state) {
-                        if (state is TopRatedMoviesLoading) {
-                          return const Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else if (state is TopRatedMoviesHasData) {
-                          return MovieList(state.result);
-                        } else if (state is TopRatedMoviesError) {
-                          return Expanded(
-                            child: Center(
-                              child: Text(state.message),
-                            ),
-                          );
-                        } else {
-                          return Expanded(
-                            child: Container(),
-                          );
-                        }
-                      },
-                    ),
-                  ],
-                ),
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Now Playing',
+                style: kHeading6,
               ),
-            )
+              BlocBuilder<NowPlayingMoviesBloc, NowPlayingMoviesState>(
+                builder: (context, state) {
+                  if (state is NowPlayingMoviesLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is NowPlayingMoviesHasData) {
+                    return MovieList(state.result);
+                  } else if (state is NowPlayingMoviesError) {
+                    return Center(
+                      child: Text(state.message),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+              SubHeading(
+                title: 'Popular',
+                onTap: () => Navigator.pushNamed(
+                    context, PopularMoviesPage.ROUTE_NAME),
+              ),
+              BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
+                builder: (context, state) {
+                  if (state is PopularMoviesLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is PopularMoviesHasData) {
+                    return MovieList(state.result);
+                  } else if (state is PopularMoviesError) {
+                    return Center(
+                      child: Text(state.message),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+              SubHeading(
+                title: 'Top Rated',
+                onTap: () => Navigator.pushNamed(
+                    context, TopRatedMoviesPage.ROUTE_NAME),
+              ),
+              BlocBuilder<TopRatedMoviesBloc, TopRatedMoviesState>(
+                builder: (context, state) {
+                  if (state is TopRatedMoviesLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is TopRatedMoviesHasData) {
+                    return MovieList(state.result);
+                  } else if (state is TopRatedMoviesError) {
+                    return Center(
+                      child: Text(state.message),
+                    );
+                  } else {
+                    return Container();
+                  }
+                },
+              ),
+            ],
+          ),
+        ),
+      )
           : HomeTvPage(),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: kMikadoYellow,
